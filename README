@@ -1,0 +1,68 @@
+## Building
+
+Build and deploy the package by navigating to the `infra` directory and running `cdk deploy`
+
+Requies NodeJS, CDK, and Go-1.19 to be installed
+
+## API examples
+
+create-account: https://xbj3yhdk5wcc66iddxadumanwe0fxvsw.lambda-url.us-west-2.on.aws/
+```
+{
+    "accountType": {String},
+    "initialBalance": {Int}
+}
+```
+
+node example "xbj3yhdk5wcc66iddxadumanwe0fxvsw.lambda-url.us-west-2.on.aws" '{"accountType": "savings", "initialBalance": 20}'
+
+
+
+
+delete-account: https://z44wqwvijuvx7pynhpmfj7cuae0dnxyg.lambda-url.us-west-2.on.aws/
+```
+{
+    "accountType": {String}
+}
+```
+
+node example "z44wqwvijuvx7pynhpmfj7cuae0dnxyg.lambda-url.us-west-2.on.aws" '{"accountType": "savings"}'
+
+
+
+
+get-balance: https://ik7dewu6voctpfllsf6idyci5u0bldvs.lambda-url.us-west-2.on.aws/
+```
+{
+    "accountType": {String}
+}
+```
+node example "ik7dewu6voctpfllsf6idyci5u0bldvs.lambda-url.us-west-2.on.aws" '{"accountType": "savings"}'
+
+
+
+list-accounts: https://dhoa4wxb4levvt4sr5z3f4ubwa0gepxn.lambda-url.us-west-2.on.aws/
+(both fields are optional)
+```
+{
+    "exclusiveStartKey": {
+        "accountID": {String},
+        "accountType": {String}
+    },
+    "limit": {Int}
+}
+```
+node example "dhoa4wxb4levvt4sr5z3f4ubwa0gepxn.lambda-url.us-west-2.on.aws"
+
+
+
+transfer: https://m3nvbvllznswoymkkzwrnijesu0qkojp.lambda-url.us-west-2.on.aws/
+```
+{
+    "srcAccountType": {String},
+    "destAccountID": {String},
+    "destAccountType": {String},
+    "amount": {Int}
+}
+```
+node example "m3nvbvllznswoymkkzwrnijesu0qkojp.lambda-url.us-west-2.on.aws" '{"srcAccountType": "savings", "destAccountId": "080785581916", "destAccountType": "savings", "amount": 20}'
